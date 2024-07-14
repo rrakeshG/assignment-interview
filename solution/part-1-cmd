@@ -1,0 +1,13 @@
+#Run the container with the environment variable set
+docker run -d --name csvserver -v $(pwd)/inputFile:/csvserver/inputdata -p 9393:9300 -e CSVSERVER_BORDER="Orange" infracloudio/csvserver:latest
+
+#Verify that the application is accessible on the host at http://localhost:9393 and has the welcome note with an orange border:
+
+# Check if the container is running
+docker ps | grep csvserver
+
+# Access the application
+curl http://localhost:9393
+
+#application now is running with the correct environment settings and accessible at http://localhost:9393. The data from inputFile is  displayed, and the welcome note is having an orange border
+
